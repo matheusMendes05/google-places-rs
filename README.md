@@ -1,7 +1,18 @@
-matheus.lima (Convidado) Tiago Nascimento da Silva (Convidado) 
 
-Criar um micro serviço WebAPI REST que recebe latitude e longitude e retorna um endereço. Ele pode ser GET ou POST. Se for POST usar o corpo como JSON. { "latitude": "0.01231", "longitude": "0.1312312" } O retorno colocar qualquer campo que retornar na API do Google { "cidade": "xxx", "estado", "xxx", "tipologradouro": "rua", "logradouro": "xpto", "bairro": "xxx" } Verificar na API se está presente uma chave Header chamada X-API-KEY e pode usar a Key ZmKPDqukxhLnpRbJ37tNeDCBCM5t9J para validação O projeto deverá ser entregue no GitHub conforme adicionado ao projeto googleplace. E ele deve ser entregue com o dockerfile para subir direto na nuvem.
+# Montagen do ambiente de desenvolvimento.
 
-Documentação do Google: Serviço Geocoding | Maps JavaScript API | Google Developers Stackoverflow contendo a mesma solicitação: Is it possible to get an address from coordinates using google maps? - Stack Overflow 
+## Instalar o Docker na maquina
+Baixar e instalar o docker na sua maquina, através da url https://www.docker.com/products/docker-desktop.
 
-Os acessos a API do Google eu já estou providenciando
+## Executar o comando abaixo a partir da pasta raiz do projeto para criar a imagem.
+docker build --pull --rm -f "Dockerfile" -t googleplacesrs:0.0.1 "." 
+
+## Para a execução da aplicação, deve-se configurar algumas variáveis de ambiente
+PORT=3333
+
+### Google Places
+GOOGLE_BASE_URL=https://maps.googleapis.com/maps/api/geocode/json?
+GOOGLE_API_KEY= chave Geocoding API (GOOGLE)
+
+### X_API_KEY
+X_API_KEY=ZmKPDqukxhLnpRbJ37tNeDCBCM5t9J
