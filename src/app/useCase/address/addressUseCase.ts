@@ -1,9 +1,13 @@
+import { GoogleService } from "../../services/google/implement/GoogleService";
 
 class AddressUseCase {
-  constructor() { }
+  constructor(private googleService: GoogleService) { }
 
-  async execute({ latitule, longitude }) {
+  async execute(latitude: string, logitude: string): Promise<any> {
 
+    const data = await this.googleService.getSearchAddress(latitude, logitude);
+
+    return data;
   }
 }
 

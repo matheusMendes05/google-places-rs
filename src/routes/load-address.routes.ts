@@ -1,4 +1,5 @@
 import { Router } from "express";
+import addressController from '../app/useCase/address'
 
 
 const loadAddressRoutes = Router();
@@ -8,7 +9,7 @@ loadAddressRoutes.get('/', (request, response) => {
 });
 
 loadAddressRoutes.post('/', (request, response) => {
-  return response.status(200).json('implementar rota');
+  return addressController().handle(request, response);
 });
 
 export { loadAddressRoutes }
