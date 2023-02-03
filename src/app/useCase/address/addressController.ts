@@ -7,7 +7,7 @@ class AddressController {
   async handle(request: Request, response: Response): Promise<Response> {
     const x_api_key = request.headers['x-api-key'];
 
-    if (!x_api_key && x_api_key != process.env.X_API_KEY) return response.status(400).json({ error: "x-api-key inválido." })
+    if (!x_api_key || x_api_key != process.env.X_API_KEY) return response.status(400).json({ error: "x-api-key inválido." })
 
     const { latitude, longitude } = request.body;
 
