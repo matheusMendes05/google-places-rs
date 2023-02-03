@@ -18,7 +18,7 @@ class AddressUseCase {
 
         const address = await this.correiosService.getAddress(iterator.long_name);
 
-        if (!address) return { error: "Endeceo nao encontrado - (WebServiceCEP)" }
+        if (!address) return { error: "Endereco nao encontrado - (WebServiceCEP)" }
 
         const endereco = {
           rua: address.logradouro,
